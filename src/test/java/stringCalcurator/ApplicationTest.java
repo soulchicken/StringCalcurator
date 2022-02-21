@@ -6,14 +6,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ApplicationTest {
 
-    Application app = new Application();
     @Test
-    void main() {
-    }
+    void main() {}
 
     @Test
     void inputNull() {
-        assertEquals(app.inputNull(""),false);
-        assertEquals(app.inputNull("1"),true);
+        assertFalse(Application.inputNull(""));
+        assertTrue(Application.inputNull("1"));
     }
+
+    @Test
+    void findCustom() {
+        assertEquals(Application.findCustom("//;\n1;2;3"),";");
+        assertEquals(Application.findCustom("1;2;3"),null);
+    }
+
 }
