@@ -70,9 +70,17 @@ public class Application {
     public static int sumNumber(String[] num) {
         int total = 0;
         for (String n : num) {
+            checkNumber(n);
             total += Integer.parseInt(n);
         }
         return total;
+    }
+
+    public static void checkNumber(String n) {
+        if (Integer.parseInt(n) < 0) {
+            throw new RuntimeException("[ERROR]");
+        }
+
     }
 
     public static String printString(String input,String custom) {
