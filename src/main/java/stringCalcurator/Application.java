@@ -8,23 +8,25 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Application {
-    public static int answer = 0;
-
     public static void main(String[] args) {
+        int answer = 0;
         System.out.println("start!");
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
-        String custom;
-        String[] num;
+        answer = splitProcess(input);
+        System.out.println(answer);
+    }
+
+    public static int splitProcess(String input) {
         if (inputNull(input)) {
+            String custom;
+            String[] num;
             custom = findCustom(input);
             input = CutCustom(input,custom);
-            System.out.println(custom);
-            System.out.println(input);
             num = splitString(input,custom);
-            answer = sumNumber(num);
+            return sumNumber(num);
         }
-        System.out.println(answer);
+        return 0;
     }
 
     public static boolean inputNull(String str) {

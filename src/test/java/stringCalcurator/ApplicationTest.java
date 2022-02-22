@@ -7,7 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class ApplicationTest {
 
     @Test
-    void main() {}
+    void splitProcess() {
+        assertEquals(Application.splitProcess("//;\n1;2;3"),6);
+        assertEquals(Application.splitProcess("//!\n1!2,3"),6);
+        assertEquals(Application.splitProcess("1,2,3"),6);
+    }
 
     @Test
     void inputNull() {
