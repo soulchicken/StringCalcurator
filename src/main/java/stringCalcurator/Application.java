@@ -19,8 +19,10 @@ public class Application {
         if (inputNull(input)) {
             custom = findCustom(input);
             input = CutCustom(input,custom);
+            System.out.println(custom);
+            System.out.println(input);
             num = splitString(input,custom);
-            System.out.println(Arrays.toString(num));
+            answer = sumNumber(num);
         }
         System.out.println(answer);
     }
@@ -58,7 +60,19 @@ public class Application {
         for (String str : notCustom) {
             splitCustom.addAll(List.of(str.split(custom)));
         }
-        return splitCustom.toArray(new String[0]);
+        notCustom = new String[splitCustom.size()];
+        for (int i = 0; i < notCustom.length; i++) {
+            notCustom[i] = splitCustom.get(i);
+        }
+        return notCustom;
+    }
+
+    public static int sumNumber(String[] num) {
+        int total = 0;
+        for (String n : num) {
+            total += Integer.parseInt(n);
+        }
+        return total;
     }
 
     public static String printString(String input,String custom) {
