@@ -10,13 +10,17 @@ import java.util.regex.Pattern;
 public class Application {
     public static int answer = 0;
 
-    public static void main(String args) {
+    public static void main(String[] args) {
+        System.out.println("start!");
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
         String custom;
         String[] num;
         if (inputNull(input)) {
             custom = findCustom(input);
+            input = CutCustom(input,custom);
+            num = splitString(input,custom);
+            System.out.println(Arrays.toString(num));
         }
         System.out.println(answer);
     }
@@ -36,6 +40,13 @@ public class Application {
         }
         String custom = matcher.group(1);
         return custom;
+    }
+
+    public static String CutCustom(String input, String custom) {
+        if (custom != null) {
+            input = input.substring(1+2+custom.length());
+        }
+        return input;
     }
 
     public static String[] splitString(String input,String custom) {

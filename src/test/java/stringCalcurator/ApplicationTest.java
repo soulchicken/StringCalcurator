@@ -22,6 +22,12 @@ class ApplicationTest {
     }
 
     @Test
+    void CutCustom() {
+        assertEquals(Application.CutCustom("//;\n1;2;3",";"),"1;2;3");
+        assertEquals(Application.CutCustom("1,2,3",null),"1,2,3");
+    }
+
+    @Test
     void splitString() {
         assertEquals(Application.printString("1;2;3",";"),"[1, 2, 3]");
         assertEquals(Application.printString("1:2,3",""),"[1, 2, 3]");
